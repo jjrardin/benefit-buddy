@@ -27,4 +27,9 @@ if st.button("Ask"):
                 }],
             )
         st.subheader("Answer")
-        st.write(resp.output_text)
+        # Clean up spacing and bullets
+answer = resp.output_text
+answer = answer.replace("•", "\n\n•")  # extra spacing for bullets
+
+# Render nicely as Markdown
+st.markdown(answer, unsafe_allow_html=True)
